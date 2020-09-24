@@ -1,0 +1,271 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form" controllerName="futuregrp.ZRTV.controller.Change" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>titleChange}" navButtonPress="Gotopage1" showNavButton="true" floatingFooter="true">
+				<content>
+					<Panel id="panel1" busyIndicatorDelay="0" expandable="true" expanded="true" headerText="Header Details" width="auto"
+						class="sapUiResponsiveMargin">
+						<content>
+							<l:Grid defaultSpan="XL4 L4 M4 S12">
+								<l:VerticalLayout>
+									<Input id="txtOrderType" type="Text" visible="false"></Input>
+									<Label text="Indent Number"/>
+								<Input id="txtIndentNo" type="Text" enabled="false"/>
+								
+								</l:VerticalLayout>
+								<l:VerticalLayout>
+									<Label text="Supplying Site"/>
+									<Input id="txtSupplyingsite" type="Text" enabled="false"/>
+								</l:VerticalLayout>
+								<l:VerticalLayout>
+									<Label text="Document Type"/>
+									<Select id="drpDocumenttype" enabled="false">
+										<items>
+											<core:Item key="0" text="Select"/>
+											<core:Item key="ZCRT" text="ZCRT - FG Returns PO"/>
+											<core:Item key="ZCRC" text="ZCRC - FG Returns PO Consignment"/>
+											<core:Item key="ZTSP" text="ZTSP - Intercomp Sale Purchase"/>
+										</items>
+									</Select>
+									<Select id="drpDocumenttypeSTO" visible="false" enabled="false">
+										<items>
+											<core:Item key="0" text="Select"/>
+											<core:Item key="ZFST" text="ZFST - FG Stok Trans Order"/>
+											<core:Item key="ZTNB" text="ZTNB - Intra Control PO"/>
+											<core:Item key="ZUB" text="ZUB - FG STock Transport"/>
+										</items>
+									</Select>
+									<Select id="drpDocumenttypeRL" visible="false" enabled="false">
+										<items>
+											<core:Item key="0" text="Select"/>
+											<core:Item key="ZFST" text="ZFST - FG Stok Trans Order"/>
+											<core:Item key="ZUB" text="ZUB - FG STock Transport"/>
+										</items>
+									</Select>
+								</l:VerticalLayout>
+							</l:Grid>
+							<l:Grid defaultSpan="XL4 L4 M4 S12">
+								<l:VerticalLayout id="vendor" visible="false">
+									<Label text="Vendor"/>
+									<Input id="txtVendor" type="Text" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelpVendor"
+										suggestionItems="{/VendorInfoSet}">
+										<suggestionItems>
+											<core:Item text="{Name1}" key="{Lifnr}"/>
+										</suggestionItems>
+									</Input>
+								</l:VerticalLayout>
+								<l:VerticalLayout id="recsite" visible="false">
+									<Label text="Receiving Site"/>
+									<Input id="txtRecSite" type="Text" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelpReceivingSite"
+										suggestionItems="{/RecevingSiteInfoSet}" enabled="false">
+										<suggestionItems>
+											<core:Item text="{Name1}" key="{Werks}"/>
+										</suggestionItems>
+									</Input>
+								</l:VerticalLayout>
+								<l:VerticalLayout>
+									<Label text="Delivery Date"/>
+									<DatePicker id="dpkDeliverydate" valueFormat="yyyy-MM-dd" displayFormat="long"/>
+								</l:VerticalLayout>
+							</l:Grid>
+						</content>
+					</Panel>
+					<Panel id="panel2" expandable="true" expanded="true" headerText="Item Details" width="auto" class="sapUiResponsiveMargin">
+						<content>
+							<l:BlockLayout id="BlockLayoutTwo">
+								<l:BlockLayoutRow>
+									<l:BlockLayoutCell width="50%">
+										<f:SimpleForm editable="true" backgroundDesign="Transparent" title="">
+											<f:content>
+												<Label text="EAN Scanned"/>
+												<Input id="txtEanscanned" enabled="true" placeholder="Scan barcode..." type="Text" liveChange="onEanScanLiveChange"></Input>
+												<Button id="btnScannextbox" text="Scan Next Box" icon="sap-icon://open-command-field" press="onScanNextBox" type="Emphasized"/>
+											</f:content>
+										</f:SimpleForm>
+									</l:BlockLayoutCell>
+									<l:BlockLayoutCell width="25%">
+										<f:SimpleForm editable="true" backgroundDesign="Transparent" title="">
+											<f:content>
+												<Label text="Box"/>
+													<ComboBox id="drpBox" enabled="true" items="{path : '/results',sorter: { path: 'Boxid' }}">
+													<core:Item key="{Box}" text="{Box}"/>
+												</ComboBox>
+												<!--<Select id="drpBox" change="_onChangeBox" items="{path : '/results',sorter: { path: 'Boxid' }}">-->
+												<!--	<core:ListItem key="{Box}" text="{Box}"/>-->
+												<!--</Select>-->
+												<Input id="txtflagbox" value="0" visible="false" type="Text" enabled="false"/>
+											</f:content>
+										</f:SimpleForm>
+									</l:BlockLayoutCell>
+									<l:BlockLayoutCell width="25%">
+										<f:SimpleForm editable="true" backgroundDesign="Transparent" title="">
+											<f:content>
+												<Label text="Product Group"/>
+												<ComboBox id="drpProdGroup" enabled="true" items="{ path: '/ProductInfoSet', sorter: { path: 'ProGroup' } }">
+													<core:Item key="{ProGroup}" text="{ProGroup}"/>
+												</ComboBox>
+											</f:content>
+										</f:SimpleForm>
+									</l:BlockLayoutCell>
+								</l:BlockLayoutRow>
+							</l:BlockLayout>
+							<Table id="tblItems" visible="true" inset="false" items="{path:'/results'}">
+								<headerToolbar>
+									<Toolbar>
+										<Label text="Item(s)"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column demandPopin="true">
+										<Text text="Article"/>
+									</Column>
+									<Column demandPopin="true">
+										<Text text="EANScanned"/>
+									</Column>
+									<Column demandPopin="true" minScreenWidth="Tablet">
+										<Text text="Article Description"/>
+									</Column>
+									<Column demandPopin="true" hAlign="Center">
+										<Text text="Qty"/>
+									</Column>
+									<Column hAlign="Center" demandPopin="true">
+										<Text text="MRP"/>
+									</Column>
+									<Column demandPopin="true" minScreenWidth="Tablet">
+										<Text text="Agreement"/>
+									</Column>
+									<Column demandPopin="true" visible="false" minScreenWidth="Tablet">
+										<Text text="Box Id"/>
+									</Column>
+									<Column demandPopin="true" visible="false" hAlign="End">
+										<Text text="Product Group"/>
+									</Column>
+									<Column demandPopin="true" visible="false" hAlign="End">
+										<Text text="Indent No"/>
+									</Column>
+									<Column demandPopin="true" hAlign="End">
+										<Text text="Action"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{Artical}"  id="artical1"/>
+											<Text text="{EANScann}" id="eanscn1"/>
+											<Text text="{ArticalDsc}" id="artcldesc"/>
+											<Text text="{Qty}" id="qty1"/>
+											<Text text="{MRP}" id="mrp1"/>
+											<Text text="{Agreement}" id="agrre1"/>
+											<Text text="{Boxid}"/>
+											<Text text="{Pgrp}"/>
+											<Text text="{IndentNum}"/>
+											<Button id="btnDelete" icon="sap-icon://delete" press="onDelete" type="Reject" tooltip="Delete"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="tblItemsTemp" visible="false" inset="false" items="{path : '/results'}">
+								<headerToolbar>
+									<Toolbar>
+										<Label text="Item(s)"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column demandPopin="true">
+										<Text text="Article"/>
+									</Column>
+									<Column demandPopin="true">
+										<Text text="EANScanned"/>
+									</Column>
+									<Column demandPopin="true" minScreenWidth="Tablet">
+										<Text text="Article Description"/>
+									</Column>
+									<Column demandPopin="true" hAlign="Center">
+										<Text text="Qty"/>
+									</Column>
+									<Column hAlign="Center" demandPopin="true">
+										<Text text="MRP"/>
+									</Column>
+									<Column demandPopin="true" minScreenWidth="Tablet">
+										<Text text="Agreement"/>
+									</Column>
+									<Column demandPopin="true" visible="false" minScreenWidth="Tablet">
+										<Text text="Box Id"/>
+									</Column>
+									<Column demandPopin="true" visible="false" hAlign="End">
+										<Text text="Product Group"/>
+									</Column>
+									<Column demandPopin="true" visible="false" hAlign="End">
+										<Text text="Indent No"/>
+									</Column>
+									<Column demandPopin="true" hAlign="End">
+										<Text text="Action"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{Matnr}"/>
+											<Text text="{Eanscan1}"/>
+											<Text text="{Maktx}"/>
+											<Text text="{Menge}"/>
+											<Text text="{Mrp}"/>
+											<Text text="{Agreement}"/>
+											<Text text="{Boxid}"/>
+											<Text text="{Pgrp}"/>
+											<Text text="{IndentNum}"/>
+											<Button id="btnDeleteTemp" icon="sap-icon://delete" press="onDelete" type="Reject" tooltip="Delete"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="tblItemsSave" inset="false" visible="false" class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" width="auto"
+								growingThreshold="10" items="{path:'/results'}" noDataText="{i18n>nodatafound}">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Items" level="H2"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column demandPopin="true">
+										<Text text="EANScanned"/>
+									</Column>
+									<Column demandPopin="true" hAlign="End">
+										<Text text="BoxId"/>
+									</Column>
+									<Column demandPopin="true" hAlign="End">
+										<Text text="Indent No"/>
+									</Column>
+									<Column demandPopin="true" hAlign="End">
+										<Text text="Product Group"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{Eanscan1}"/>
+											<Text text="{Boxid}"/>
+											<Text text="{Pgrp}"/>
+											<Text text="{IndentNum}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Panel>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<content>
+							<!--<Button id="btnScanbarcode" text="" visible="true" icon="sap-icon://bar-code" press="onEANBarcodeScan" type="Emphasized"/>-->
+							<ToolbarSpacer/>
+							<Button id="btnSave" text="Save" visible="true" icon="sap-icon://save" press="_onSave" type="Emphasized" tooltip="Save"/>
+							<Button text="Hold" visible="true" type="Reject" press="_onHold" icon="sap-icon://stop" id="btnHold" tooltip="Hold"/>
+						</content>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

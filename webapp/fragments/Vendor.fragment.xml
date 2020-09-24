@@ -1,0 +1,8 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+	<SelectDialog id="VendorPopup" title="{i18n>select}" items="{ path: '/Vendorset' }" noDataText="{i18n>notfound}"
+		search="_handleValueHelpSearchVendor" confirm="_handleValueHelpCloseVendor" cancel="_handleValueHelpCloseVendor">
+		<StandardListItem title="{vendor}"  iconDensityAware="false" iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

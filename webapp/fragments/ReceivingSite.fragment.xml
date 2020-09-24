@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="receivingSitePopup" title="{i18n>select}" items="{ path: '/RecevingSiteInfoSet' }" noDataText="{i18n>notfound}"
+		search="_handleValueHelpSearchReceivingSite" confirm="_handleValueHelpCloseReceivingSite" cancel="_handleValueHelpCloseReceivingSite">
+		<StandardListItem title="{Name1}" description="{Werks}" iconDensityAware="false" iconInset="false" type="Active" id="lstReceivingSite"/>
+	</SelectDialog>
+</core:FragmentDefinition>

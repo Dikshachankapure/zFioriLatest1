@@ -1,0 +1,77 @@
+{
+
+	"ChangeData": [{
+	
+		"IndentNo": "0001",
+		"Supplyingsite": "Site0",
+		"DocumentType": "ABCD",
+		"vendor": "Vendor1",
+		"DeliveryDate": "16/08/2019",
+		"Box": "Box1",
+		"ProductGroup": "ProductGroup1"	,
+		"Artical": "Artical1",
+		"EANScann": "1001",
+		"ArticalDsc": "ABC",
+		"Qty": "10",
+		"MRP": "1000",
+		"Agreement": "XYZ",
+		"Action": "Action1"	
+	},
+	
+	{
+	
+		"IndentNo": "0002",
+		"Supplyingsite": "Site1",
+		"DocumentType": "DEFG",
+		"vendor": "Vendor2",
+		"DeliveryDate": "1/01/2019",
+		"Box": "Box2",
+		"ProductGroup": "ProductGroup2"	,
+			"Artical": "Artical2",
+		"EANScann": "1002",
+		"ArticalDsc": "DEF",
+		"Qty": "20",
+		"MRP": "2000",
+		"Agreement": "LMN",
+		"Action": "Action2"		
+	},
+	
+		{
+	
+		"IndentNo": "0003",
+		"Supplyingsite": "Site2",
+		"DocumentType": "GHJK",
+		"vendor": "Vendor3",
+		"DeliveryDate": "11/03/2019",
+		"Box": "Box3",
+		"ProductGroup": "ProductGroup3"	,
+		
+		"Artical": "Artical3",
+		"EANScann": "1003",
+		"ArticalDsc": "PQR",
+		"Qty": "30",
+		"MRP": "3000",
+		"Agreement": "GHJ",
+		"Action": "Action3"		
+	},
+	
+	
+		{
+	
+		"IndentNo": "0004",
+		"Supplyingsite": "Site3",
+		"DocumentType": "ASDF",
+		"vendor": "Vendor4",
+		"DeliveryDate": "20/03/2018",
+		"Box": "Box4",
+		"ProductGroup": "ProductGroup4"	,
+			"Artical": "Artical4",
+		"EANScann": "1004",
+		"ArticalDsc": "ASD",
+		"Qty": "40",
+		"MRP": "4000",
+		"Agreement": "BNM",
+		"Action": "Action4"		
+	}
+	]
+	}

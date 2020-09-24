@@ -1,0 +1,197 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "futuregrp.ZRTV",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZRTV_FIORI_SRV": {
+				"uri": "/sap/opu/odata/sap/ZRTV_FIORI_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "futuregrp.ZRTV.view.Main",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38.6",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.38.6"
+				},
+				"sap.m": {
+					"minVersion": "1.38.6"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.38.6"
+				},
+				"sap.ushell": {
+					"minVersion": "1.38.6"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "futuregrp.ZRTV.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZRTV_FIORI_SRV",
+				"preload": true
+			},
+			"SupplyingsiteData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/supplyingsite.json",
+				"preload": false
+			},
+			"Vendordata": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/vendor.json",
+				"preload": false
+			},
+			"BoxData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/box.json",
+				"preload": false
+			},
+			"ProductGroupData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/productgrp.json",
+				"preload": false
+			},
+			"ItemsData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/Items.json",
+				"preload": false
+			},
+			"IndentNoData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/indentNo.json",
+				"preload": false
+			},
+			"ChangeDataSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/change.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "futuregrp.ZRTV.view",
+				"controlAggregation": "pages",
+				"controlId": "idAppControl",
+				"transition": "slide",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "main",
+					"target": "main"
+				},
+				{
+					"pattern": "OT/{OrderType}",
+					"name": "detail",
+					"target": "detail"
+				},
+				{
+					"pattern": "OT/{OrderType}/IN/{IndentNo}",
+					"name": "change",
+					"target": "change"
+				},
+				{
+					"name": "main",
+					"pattern": "Main",
+					"target": [
+						"main"
+					]
+				}
+			],
+			"targets": {
+				"main": {
+					"viewType": "XML",
+					"viewName": "Main"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"viewLevel": 2
+				},
+				"change": {
+					"viewName": "Change",
+					"viewLevel": 3
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zrtv_fiori/webapp",
+		"_version": "1.1.0"
+	}
+}

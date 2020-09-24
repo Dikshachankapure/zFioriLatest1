@@ -1,0 +1,61 @@
+/* Enter your custom styles here */
+
+.sapMPanelContent:not(.sapMPanelBGTransparent) {
+    border-bottom: 0px;
+}
+
+#__component0---main--btnExecute-inner,
+#__xmlview1--btnExecute-inner,
+#__xmlview2--btnExecute-inner {
+    margin-left: 15px;
+}
+
+.sapMPanel>.sapMPanelHdr,
+.sapMPanelWrappingDiv,
+.sapMPanelWrappingDivTb {
+    background-color: #2BA5AF;
+    color: white;
+}
+
+.sapMPanelWrappingDiv.sapMPanelWrappingDivExpanded {
+    background-color: #2BA5AF;
+    color: white;
+}
+
+.sapUiFormResLayout>div {
+    padding: 0rem;
+}
+
+.sapUiBlockCellContent {
+    padding: 0rem;
+}
+
+.sapMTableTH>.sapMLnk,
+.sapMTableTH>.sapMText,
+.sapMTableTH>.sapMLabel,
+.sapMTableTH>.sapMObjectNumber {
+    font-weight: bold;
+}
+
+.sapMListTblSubCntRow>.sapMListTblSubCntSpr,
+.sapMListTblSubCntRow>.sapMListTblSubCntHdr .sapMText,
+.sapMListTblSubCntRow>.sapMListTblSubCntHdr .sapMLabel {
+    font-weight: bold;
+}
+#__xmlview1--drpOrder, #__xmlview1--btnExecute
+{
+	margin-left:15px;
+}
+
+.width100{
+	width:100%;
+}
+
+.sapUiVlt.sapUiContentPadding
+{
+	padding: 0rem !important;
+}
+
+.marginbtnexecute{
+	margin-left: 15px !important;
+}

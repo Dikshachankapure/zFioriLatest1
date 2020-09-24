@@ -1,0 +1,50 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="futuregrp.ZRTV.controller.Main" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Panel id="panel1" headerText="Create Order" width="100%" visible="true">
+						<content>
+							<Select xmlns="sap.m" id="drpOrder">
+								<items>
+									<core:Item xmlns:core="sap.ui.core" key="RPO" text="Order Type 1" id="rpo1"/>
+										<core:Item xmlns:core="sap.ui.core" key="RPO" text="Order Type 2" id="rpo2"/>
+										<core:Item xmlns:core="sap.ui.core" key="RPO" text="Order Type 3" id="rpo3"/>
+										<core:Item xmlns:core="sap.ui.core" key="RPO" text="Order Type 4" id="rpo4"/>
+									<!--<core:Item xmlns:core="sap.ui.core" key="STO" text="Stock Transfer Order" id="sto"/>
+									<core:Item xmlns:core="sap.ui.core" key="RL" text="Return Logistic" id="rlrpo"/>-->
+								</items>
+							</Select>
+						</content>
+					</Panel>
+					<Panel id="panel2" headerText="Selection Criteria" width="100%">
+						<content>
+							<l:VerticalLayout class="sapUiContentPadding">
+								<l:content>
+									<Select xmlns="sap.m" id="drpCriteria" change="onChangeCriteria" width="200px">
+										<items>
+											<core:Item xmlns:core="sap.ui.core" key="1" text="Create" id="create"/>
+											<core:Item xmlns:core="sap.ui.core" key="2" text="Change" id="change"/>
+										</items>
+									</Select>
+								</l:content>
+							</l:VerticalLayout>
+							<l:VerticalLayout class="sapUiContentPadding">
+								<l:content>
+									<Input id="txtIndentnumber" visible="true" type="Text" textFormatMode="Key" showSuggestion="false" showValueHelp="true"
+										valueHelpRequest="handleValueHelpIndentInfo"   suggestionItems="{/IndentNoSet}">
+											<suggestionItems>
+											<core:Item text="{IndentNo}" key="{IndentNo}"/>
+										</suggestionItems>
+									</Input>
+								</l:content>
+							</l:VerticalLayout>
+						</content>
+					</Panel>
+					<Button class="marginbtnexecute" text="Execute" icon="sap-icon://display" type="Emphasized" press="onExecute" id="btnExecute"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

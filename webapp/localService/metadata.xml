@@ -1,0 +1,622 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZRTV_FIORI_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="BoxId" sap:content-version="1">
+				<Key><PropertyRef Name="Iboxid"/></Key><Property Name="Iboxid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Eboxid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SaveHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Document Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="SaveItemSet" Relationship="ZRTV_FIORI_SRV.SaveHeaderToItem" FromRole="FromRole_SaveHeaderToItem"
+					ToRole="ToRole_SaveHeaderToItem"/><NavigationProperty Name="SaveReturnSet" Relationship="ZRTV_FIORI_SRV.SaveHeaderToReturn" FromRole="FromRole_SaveHeaderToReturn"
+					ToRole="ToRole_SaveHeaderToReturn"/></EntityType>
+			<EntityType Name="SaveItem" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SaveReturn" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeHeaderSave" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChangeItemSaveSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderSaveItemSave"
+					FromRole="FromRole_ChangeHeaderSaveItemSave" ToRole="ToRole_ChangeHeaderSaveItemSave"/><NavigationProperty Name="ChangeReturnSaveSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderSaveReturnSave"
+					FromRole="FromRole_ChangeHeaderSaveReturnSave" ToRole="ToRole_ChangeHeaderSaveReturnSave"/></EntityType>
+			<EntityType Name="ChangeItemSave" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeReturnSave" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeHeaderHold" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChangeItemHoldSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderHoldItemHold"
+					FromRole="FromRole_ChangeHeaderHoldItemHold" ToRole="ToRole_ChangeHeaderHoldItemHold"/><NavigationProperty Name="ChangReturnHoldSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderHoldReturnHold"
+					FromRole="FromRole_ChangeHeaderHoldReturnHold" ToRole="ToRole_ChangeHeaderHoldReturnHold"/></EntityType>
+			<EntityType Name="ChangeItemHold" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangReturnHold" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HeaderCheckSto" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="RecSite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ItemGetSto" sap:content-version="1">
+				<Key><PropertyRef Name="BoxId"/><PropertyRef Name="Werks"/></Key><Property Name="BoxId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="RecSite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pgrp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Mrp" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Agreement" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SiteInfo" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="VendorInfo" sap:content-version="1">
+				<Key><PropertyRef Name="Lifnr"/></Key><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ProductInfo" sap:content-version="1">
+				<Key><PropertyRef Name="ProGroup"/></Key><Property Name="ProGroup" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Product Group"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HeaderCheck" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ItemGet" sap:content-version="1">
+				<Key><PropertyRef Name="BoxId"/><PropertyRef Name="Werks"/></Key><Property Name="BoxId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pgrp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Mrp" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Agreement" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HoldHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Document Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="HoldReturnSet" Relationship="ZRTV_FIORI_SRV.HoldHeaderToReturn" FromRole="FromRole_HoldHeaderToReturn"
+					ToRole="ToRole_HoldHeaderToReturn"/><NavigationProperty Name="HoldItemSet" Relationship="ZRTV_FIORI_SRV.HoldHeaderToItem" FromRole="FromRole_HoldHeaderToItem"
+					ToRole="ToRole_HoldHeaderToItem"/></EntityType>
+			<EntityType Name="HoldItem" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HoldReturn" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeBox" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Boxid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BoxID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeHeader" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Site" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sending Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lgort" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Stor. Location" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Document Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChangeReturnSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderToReturn" FromRole="FromRole_ChangeHeaderToReturn"
+					ToRole="ToRole_ChangeHeaderToReturn"/><NavigationProperty Name="ChangeItemSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderToItem" FromRole="FromRole_ChangeHeaderToItem"
+					ToRole="ToRole_ChangeHeaderToItem"/><NavigationProperty Name="ChangeBoxSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderToBox" FromRole="FromRole_ChangeHeaderToBox"
+					ToRole="ToRole_ChangeHeaderToBox"/><NavigationProperty Name="ChangeSaveItemSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderItemSave" FromRole="FromRole_ChangeHeaderItemSave"
+					ToRole="ToRole_ChangeHeaderItemSave"/></EntityType>
+			<EntityType Name="ChangeItem" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Article" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan1" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mrp" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:label="Amount"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Boxid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BoxID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pgrp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Agreement" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Agreement" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeSaveItem" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan1" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Boxid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BoxID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pgrp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeReturn" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Return" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="RecevingSiteInfo" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HoldHeaderSto" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Document Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="RecSite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="HoldItemStoSet" Relationship="ZRTV_FIORI_SRV.HoldStoHeaderToItem" FromRole="FromRole_HoldStoHeaderToItem"
+					ToRole="ToRole_HoldStoHeaderToItem"/><NavigationProperty Name="HoldReturnStoSet" Relationship="ZRTV_FIORI_SRV.HoldStoHeaderToReturn" FromRole="FromRole_HoldStoHeaderToReturn"
+					ToRole="ToRole_HoldStoHeaderToReturn"/></EntityType>
+			<EntityType Name="HoldItemSto" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HoldReturnSto" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SaveHeaderSto" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sloc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Document Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="RecSite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="SaveItemStoSet" Relationship="ZRTV_FIORI_SRV.SaveStoHeaderToItem" FromRole="FromRole_SaveStoHeaderToItem"
+					ToRole="ToRole_SaveStoHeaderToItem"/><NavigationProperty Name="SaveReturnStoSet" Relationship="ZRTV_FIORI_SRV.SaveStoHeaderToReturn" FromRole="FromRole_SaveStoHeaderToReturn"
+					ToRole="ToRole_SaveStoHeaderToReturn"/></EntityType>
+			<EntityType Name="SaveItemSto" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SaveReturnSto" sap:content-version="1">
+				<Key><PropertyRef Name="Type"/><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="IndentInfo" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Order Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Recsite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Receiving Site"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Supplsite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sending Site"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Indicator1" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="RPO or STO ind"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ZindentNum" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Recsite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Supplsite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Indicator1" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeHeaderSto" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Site" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sending Site" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="recsite" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Receiving Site"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lgort" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Stor. Location" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bsart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Document Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChangeReturnStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderStoToReturn"
+					FromRole="FromRole_ChangeHeaderStoToReturn" ToRole="ToRole_ChangeHeaderStoToReturn"/><NavigationProperty Name="ChangeItemStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderStoToItem" FromRole="FromRole_ChangeHeaderStoToItem"
+					ToRole="ToRole_ChangeHeaderStoToItem"/><NavigationProperty Name="ChangeBoxStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderStoToBox" FromRole="FromRole_ChangeHeaderStoToBox"
+					ToRole="ToRole_ChangeHeaderStoToBox"/><NavigationProperty Name="ChangeSaveStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderStoToSave" FromRole="FromRole_ChangeHeaderStoToSave"
+					ToRole="ToRole_ChangeHeaderStoToSave"/></EntityType>
+			<EntityType Name="ChangeBoxSto" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Boxid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BoxID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeItemSto" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Article" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan1" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mrp" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:label="Amount"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Boxid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BoxID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pgrp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Agreement" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Agreement" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeReturnSto" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeSaveSto" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eanscan1" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Boxid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BoxID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pgrp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeHeaderHoldSto" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChangeReturnHoldStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderHoldStoToReturn"
+					FromRole="FromRole_ChangeHeaderHoldStoToReturn" ToRole="ToRole_ChangeHeaderHoldStoToReturn"/><NavigationProperty Name="ChangeItemHoldStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderHoldStoToItem"
+					FromRole="FromRole_ChangeHeaderHoldStoToItem" ToRole="ToRole_ChangeHeaderHoldStoToItem"/></EntityType>
+			<EntityType Name="ChangeItemHoldSto" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeReturnHoldSto" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeHeaderSaveSto" sap:content-version="1">
+				<Key><PropertyRef Name="IndentNum"/></Key><Property Name="IndentNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Indent Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChangeReturnSaveStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderSaveStoToReturn"
+					FromRole="FromRole_ChangeHeaderSaveStoToReturn" ToRole="ToRole_ChangeHeaderSaveStoToReturn"/><NavigationProperty Name="ChangeItemSaveStoSet" Relationship="ZRTV_FIORI_SRV.ChangeHeaderSaveStoToItem"
+					FromRole="FromRole_ChangeHeaderSaveStoToItem" ToRole="ToRole_ChangeHeaderSaveStoToItem"/></EntityType>
+			<EntityType Name="ChangeItemSaveSto" sap:content-version="1">
+				<Key><PropertyRef Name="Eanscan"/></Key><Property Name="Eanscan" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="GTIN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Box" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Box" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zprgp" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeReturnSaveSto" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Message Class" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Message number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Log number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Message no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Parameter Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Row" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parameter line" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Logical system"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="SaveStoHeaderToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.SaveHeaderSto" Multiplicity="1" Role="FromRole_SaveStoHeaderToItem"/><End Type="ZRTV_FIORI_SRV.SaveItemSto" Multiplicity="*" Role="ToRole_SaveStoHeaderToItem"/></Association>
+			<Association Name="SaveStoHeaderToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.SaveHeaderSto" Multiplicity="1" Role="FromRole_SaveStoHeaderToReturn"/><End Type="ZRTV_FIORI_SRV.SaveReturnSto" Multiplicity="*" Role="ToRole_SaveStoHeaderToReturn"/></Association>
+			<Association Name="ChangeHeaderItemSave" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeader" Multiplicity="1" Role="FromRole_ChangeHeaderItemSave"/><End Type="ZRTV_FIORI_SRV.ChangeSaveItem" Multiplicity="*" Role="ToRole_ChangeHeaderItemSave"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeHeaderItemSave"><PropertyRef Name="IndentNum"/></Principal>
+					<Dependent Role="ToRole_ChangeHeaderItemSave"><PropertyRef Name="IndentNum"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeHeaderToBox" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeader" Multiplicity="1" Role="FromRole_ChangeHeaderToBox"/><End Type="ZRTV_FIORI_SRV.ChangeBox" Multiplicity="*" Role="ToRole_ChangeHeaderToBox"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeHeaderToBox"><PropertyRef Name="IndentNum"/></Principal>
+					<Dependent Role="ToRole_ChangeHeaderToBox"><PropertyRef Name="IndentNum"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeHeaderToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeader" Multiplicity="1" Role="FromRole_ChangeHeaderToItem"/><End Type="ZRTV_FIORI_SRV.ChangeItem" Multiplicity="*" Role="ToRole_ChangeHeaderToItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeHeaderToItem"><PropertyRef Name="IndentNum"/></Principal>
+					<Dependent Role="ToRole_ChangeHeaderToItem"><PropertyRef Name="IndentNum"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeHeaderToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeader" Multiplicity="1" Role="FromRole_ChangeHeaderToReturn"/><End Type="ZRTV_FIORI_SRV.ChangeReturn" Multiplicity="*" Role="ToRole_ChangeHeaderToReturn"/></Association>
+			<Association Name="ChangeHeaderSaveItemSave" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSave" Multiplicity="1" Role="FromRole_ChangeHeaderSaveItemSave"/><End Type="ZRTV_FIORI_SRV.ChangeItemSave" Multiplicity="*" Role="ToRole_ChangeHeaderSaveItemSave"/></Association>
+			<Association Name="ChangeHeaderSaveReturnSave" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSave" Multiplicity="1" Role="FromRole_ChangeHeaderSaveReturnSave"/><End Type="ZRTV_FIORI_SRV.ChangeReturnSave" Multiplicity="*" Role="ToRole_ChangeHeaderSaveReturnSave"/></Association>
+			<Association Name="ChangeHeaderHoldItemHold" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderHold" Multiplicity="1" Role="FromRole_ChangeHeaderHoldItemHold"/><End Type="ZRTV_FIORI_SRV.ChangeItemHold" Multiplicity="*" Role="ToRole_ChangeHeaderHoldItemHold"/></Association>
+			<Association Name="ChangeHeaderHoldReturnHold" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderHold" Multiplicity="1" Role="FromRole_ChangeHeaderHoldReturnHold"/><End Type="ZRTV_FIORI_SRV.ChangReturnHold" Multiplicity="*" Role="ToRole_ChangeHeaderHoldReturnHold"/></Association>
+			<Association Name="ChangeHeaderSaveStoToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSaveSto" Multiplicity="1" Role="FromRole_ChangeHeaderSaveStoToItem"/><End Type="ZRTV_FIORI_SRV.ChangeItemSaveSto" Multiplicity="*" Role="ToRole_ChangeHeaderSaveStoToItem"/></Association>
+			<Association Name="ChangeHeaderSaveStoToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSaveSto" Multiplicity="1" Role="FromRole_ChangeHeaderSaveStoToReturn"/><End Type="ZRTV_FIORI_SRV.ChangeReturnSaveSto" Multiplicity="*" Role="ToRole_ChangeHeaderSaveStoToReturn"/></Association>
+			<Association Name="SaveHeaderToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.SaveHeader" Multiplicity="1" Role="FromRole_SaveHeaderToItem"/><End Type="ZRTV_FIORI_SRV.SaveItem" Multiplicity="*" Role="ToRole_SaveHeaderToItem"/></Association>
+			<Association Name="SaveHeaderToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.SaveHeader" Multiplicity="1" Role="FromRole_SaveHeaderToReturn"/><End Type="ZRTV_FIORI_SRV.SaveReturn" Multiplicity="*" Role="ToRole_SaveHeaderToReturn"/></Association>
+			<Association Name="ChangeHeaderStoToBox" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSto" Multiplicity="1" Role="FromRole_ChangeHeaderStoToBox"/><End Type="ZRTV_FIORI_SRV.ChangeBoxSto" Multiplicity="*" Role="ToRole_ChangeHeaderStoToBox"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeHeaderStoToBox"><PropertyRef Name="IndentNum"/></Principal>
+					<Dependent Role="ToRole_ChangeHeaderStoToBox"><PropertyRef Name="IndentNum"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeHeaderStoToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSto" Multiplicity="1" Role="FromRole_ChangeHeaderStoToItem"/><End Type="ZRTV_FIORI_SRV.ChangeItemSto" Multiplicity="*" Role="ToRole_ChangeHeaderStoToItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeHeaderStoToItem"><PropertyRef Name="IndentNum"/></Principal>
+					<Dependent Role="ToRole_ChangeHeaderStoToItem"><PropertyRef Name="IndentNum"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeHeaderStoToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSto" Multiplicity="1" Role="FromRole_ChangeHeaderStoToReturn"/><End Type="ZRTV_FIORI_SRV.ChangeReturnSto" Multiplicity="*" Role="ToRole_ChangeHeaderStoToReturn"/></Association>
+			<Association Name="ChangeHeaderStoToSave" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderSto" Multiplicity="1" Role="FromRole_ChangeHeaderStoToSave"/><End Type="ZRTV_FIORI_SRV.ChangeSaveSto" Multiplicity="*" Role="ToRole_ChangeHeaderStoToSave"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeHeaderStoToSave"><PropertyRef Name="IndentNum"/></Principal>
+					<Dependent Role="ToRole_ChangeHeaderStoToSave"><PropertyRef Name="IndentNum"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="HoldStoHeaderToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.HoldHeaderSto" Multiplicity="1" Role="FromRole_HoldStoHeaderToItem"/><End Type="ZRTV_FIORI_SRV.HoldItemSto" Multiplicity="*" Role="ToRole_HoldStoHeaderToItem"/></Association>
+			<Association Name="HoldStoHeaderToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.HoldHeaderSto" Multiplicity="1" Role="FromRole_HoldStoHeaderToReturn"/><End Type="ZRTV_FIORI_SRV.HoldReturnSto" Multiplicity="*" Role="ToRole_HoldStoHeaderToReturn"/></Association>
+			<Association Name="HoldHeaderToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.HoldHeader" Multiplicity="1" Role="FromRole_HoldHeaderToItem"/><End Type="ZRTV_FIORI_SRV.HoldItem" Multiplicity="*" Role="ToRole_HoldHeaderToItem"/></Association>
+			<Association Name="HoldHeaderToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.HoldHeader" Multiplicity="1" Role="FromRole_HoldHeaderToReturn"/><End Type="ZRTV_FIORI_SRV.HoldReturn" Multiplicity="*" Role="ToRole_HoldHeaderToReturn"/></Association>
+			<Association Name="ChangeHeaderHoldStoToItem" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderHoldSto" Multiplicity="1" Role="FromRole_ChangeHeaderHoldStoToItem"/><End Type="ZRTV_FIORI_SRV.ChangeItemHoldSto" Multiplicity="*" Role="ToRole_ChangeHeaderHoldStoToItem"/></Association>
+			<Association Name="ChangeHeaderHoldStoToReturn" sap:content-version="1"><End Type="ZRTV_FIORI_SRV.ChangeHeaderHoldSto" Multiplicity="1" Role="FromRole_ChangeHeaderHoldStoToReturn"/><End Type="ZRTV_FIORI_SRV.ChangeReturnHoldSto" Multiplicity="*" Role="ToRole_ChangeHeaderHoldStoToReturn"/></Association>
+			<EntityContainer Name="ZRTV_FIORI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="SaveHeaderSet" EntityType="ZRTV_FIORI_SRV.SaveHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="SaveItemSet" EntityType="ZRTV_FIORI_SRV.SaveItem" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="SaveReturnSet" EntityType="ZRTV_FIORI_SRV.SaveReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeHeaderSaveSet" EntityType="ZRTV_FIORI_SRV.ChangeHeaderSave" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeItemSaveSet" EntityType="ZRTV_FIORI_SRV.ChangeItemSave" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeReturnSaveSet" EntityType="ZRTV_FIORI_SRV.ChangeReturnSave" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeHeaderHoldSet" EntityType="ZRTV_FIORI_SRV.ChangeHeaderHold" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeItemHoldSet" EntityType="ZRTV_FIORI_SRV.ChangeItemHold" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangReturnHoldSet" EntityType="ZRTV_FIORI_SRV.ChangReturnHold" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="HeaderCheckStoSet" EntityType="ZRTV_FIORI_SRV.HeaderCheckSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ItemGetStoSet" EntityType="ZRTV_FIORI_SRV.ItemGetSto" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="SiteInfoSet" EntityType="ZRTV_FIORI_SRV.SiteInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="VendorInfoSet" EntityType="ZRTV_FIORI_SRV.VendorInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ProductInfoSet" EntityType="ZRTV_FIORI_SRV.ProductInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HeaderCheckSet" EntityType="ZRTV_FIORI_SRV.HeaderCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ItemGetSet" EntityType="ZRTV_FIORI_SRV.ItemGet" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HoldHeaderSet" EntityType="ZRTV_FIORI_SRV.HoldHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HoldItemSet" EntityType="ZRTV_FIORI_SRV.HoldItem" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HoldReturnSet" EntityType="ZRTV_FIORI_SRV.HoldReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeBoxSet" EntityType="ZRTV_FIORI_SRV.ChangeBox" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeHeaderSet" EntityType="ZRTV_FIORI_SRV.ChangeHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeItemSet" EntityType="ZRTV_FIORI_SRV.ChangeItem" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeSaveItemSet" EntityType="ZRTV_FIORI_SRV.ChangeSaveItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeReturnSet" EntityType="ZRTV_FIORI_SRV.ChangeReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ReturnSet" EntityType="ZRTV_FIORI_SRV.Return" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="RecevingSiteInfoSet" EntityType="ZRTV_FIORI_SRV.RecevingSiteInfo" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="HoldHeaderStoSet" EntityType="ZRTV_FIORI_SRV.HoldHeaderSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="HoldItemStoSet" EntityType="ZRTV_FIORI_SRV.HoldItemSto" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HoldReturnStoSet" EntityType="ZRTV_FIORI_SRV.HoldReturnSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="SaveHeaderStoSet" EntityType="ZRTV_FIORI_SRV.SaveHeaderSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="SaveItemStoSet" EntityType="ZRTV_FIORI_SRV.SaveItemSto" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="SaveReturnStoSet" EntityType="ZRTV_FIORI_SRV.SaveReturnSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="IndentInfoSet" EntityType="ZRTV_FIORI_SRV.IndentInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ZindentNumSet" EntityType="ZRTV_FIORI_SRV.ZindentNum" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeHeaderStoSet" EntityType="ZRTV_FIORI_SRV.ChangeHeaderSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeBoxStoSet" EntityType="ZRTV_FIORI_SRV.ChangeBoxSto" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeItemStoSet" EntityType="ZRTV_FIORI_SRV.ChangeItemSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeReturnStoSet" EntityType="ZRTV_FIORI_SRV.ChangeReturnSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeSaveStoSet" EntityType="ZRTV_FIORI_SRV.ChangeSaveSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeHeaderHoldStoSet" EntityType="ZRTV_FIORI_SRV.ChangeHeaderHoldSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeItemHoldStoSet" EntityType="ZRTV_FIORI_SRV.ChangeItemHoldSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeReturnHoldStoSet" EntityType="ZRTV_FIORI_SRV.ChangeReturnHoldSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeHeaderSaveStoSet" EntityType="ZRTV_FIORI_SRV.ChangeHeaderSaveSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeItemSaveStoSet" EntityType="ZRTV_FIORI_SRV.ChangeItemSaveSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChangeReturnSaveStoSet" EntityType="ZRTV_FIORI_SRV.ChangeReturnSaveSto" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="BoxIdSet" EntityType="ZRTV_FIORI_SRV.BoxId" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="ChangeHeaderSaveStoToItemSet" Association="ZRTV_FIORI_SRV.ChangeHeaderSaveStoToItem" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSaveStoSet" Role="FromRole_ChangeHeaderSaveStoToItem"/><End EntitySet="ChangeItemSaveStoSet" Role="ToRole_ChangeHeaderSaveStoToItem"/></AssociationSet>
+				<AssociationSet Name="HoldHeaderToItemSet" Association="ZRTV_FIORI_SRV.HoldHeaderToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HoldHeaderSet" Role="FromRole_HoldHeaderToItem"/><End EntitySet="HoldItemSet" Role="ToRole_HoldHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderStoToSaveSet" Association="ZRTV_FIORI_SRV.ChangeHeaderStoToSave" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderStoSet" Role="FromRole_ChangeHeaderStoToSave"/><End EntitySet="ChangeSaveStoSet" Role="ToRole_ChangeHeaderStoToSave"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderHoldStoToItemSet" Association="ZRTV_FIORI_SRV.ChangeHeaderHoldStoToItem" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderHoldStoSet" Role="FromRole_ChangeHeaderHoldStoToItem"/><End EntitySet="ChangeItemHoldStoSet" Role="ToRole_ChangeHeaderHoldStoToItem"/></AssociationSet>
+				<AssociationSet Name="SaveStoHeaderToItemSet" Association="ZRTV_FIORI_SRV.SaveStoHeaderToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="SaveHeaderStoSet" Role="FromRole_SaveStoHeaderToItem"/><End EntitySet="SaveItemStoSet" Role="ToRole_SaveStoHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderStoToReturnSet" Association="ZRTV_FIORI_SRV.ChangeHeaderStoToReturn" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderStoSet" Role="FromRole_ChangeHeaderStoToReturn"/><End EntitySet="ChangeReturnStoSet" Role="ToRole_ChangeHeaderStoToReturn"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderToReturnSet" Association="ZRTV_FIORI_SRV.ChangeHeaderToReturn" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSet" Role="FromRole_ChangeHeaderToReturn"/><End EntitySet="ChangeReturnSet" Role="ToRole_ChangeHeaderToReturn"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderToBoxSet" Association="ZRTV_FIORI_SRV.ChangeHeaderToBox" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSet" Role="FromRole_ChangeHeaderToBox"/><End EntitySet="ChangeBoxSet" Role="ToRole_ChangeHeaderToBox"/></AssociationSet>
+				<AssociationSet Name="SaveHeaderToItemSet" Association="ZRTV_FIORI_SRV.SaveHeaderToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="SaveHeaderSet" Role="FromRole_SaveHeaderToItem"/><End EntitySet="SaveItemSet" Role="ToRole_SaveHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderItemSaveSet" Association="ZRTV_FIORI_SRV.ChangeHeaderItemSave" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSet" Role="FromRole_ChangeHeaderItemSave"/><End EntitySet="ChangeSaveItemSet" Role="ToRole_ChangeHeaderItemSave"/></AssociationSet>
+				<AssociationSet Name="HoldHeaderToReturnSet" Association="ZRTV_FIORI_SRV.HoldHeaderToReturn" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HoldHeaderSet" Role="FromRole_HoldHeaderToReturn"/><End EntitySet="HoldReturnSet" Role="ToRole_HoldHeaderToReturn"/></AssociationSet>
+				<AssociationSet Name="SaveStoHeaderToReturnSet" Association="ZRTV_FIORI_SRV.SaveStoHeaderToReturn" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SaveHeaderStoSet" Role="FromRole_SaveStoHeaderToReturn"/><End EntitySet="SaveReturnStoSet" Role="ToRole_SaveStoHeaderToReturn"/></AssociationSet>
+				<AssociationSet Name="HoldStoHeaderToReturnSet" Association="ZRTV_FIORI_SRV.HoldStoHeaderToReturn" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="HoldHeaderStoSet" Role="FromRole_HoldStoHeaderToReturn"/><End EntitySet="HoldReturnStoSet" Role="ToRole_HoldStoHeaderToReturn"/></AssociationSet>
+				<AssociationSet Name="HoldStoHeaderToItemSet" Association="ZRTV_FIORI_SRV.HoldStoHeaderToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HoldHeaderStoSet" Role="FromRole_HoldStoHeaderToItem"/><End EntitySet="HoldItemStoSet" Role="ToRole_HoldStoHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderSaveReturnSaveSet" Association="ZRTV_FIORI_SRV.ChangeHeaderSaveReturnSave" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSaveSet" Role="FromRole_ChangeHeaderSaveReturnSave"/><End EntitySet="ChangeReturnSaveSet" Role="ToRole_ChangeHeaderSaveReturnSave"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderHoldReturnHoldSet" Association="ZRTV_FIORI_SRV.ChangeHeaderHoldReturnHold" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderHoldSet" Role="FromRole_ChangeHeaderHoldReturnHold"/><End EntitySet="ChangReturnHoldSet" Role="ToRole_ChangeHeaderHoldReturnHold"/></AssociationSet>
+				<AssociationSet Name="SaveHeaderToReturnSet" Association="ZRTV_FIORI_SRV.SaveHeaderToReturn" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="SaveHeaderSet" Role="FromRole_SaveHeaderToReturn"/><End EntitySet="SaveReturnSet" Role="ToRole_SaveHeaderToReturn"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderStoToItemSet" Association="ZRTV_FIORI_SRV.ChangeHeaderStoToItem" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderStoSet" Role="FromRole_ChangeHeaderStoToItem"/><End EntitySet="ChangeItemStoSet" Role="ToRole_ChangeHeaderStoToItem"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderSaveStoToReturnSet" Association="ZRTV_FIORI_SRV.ChangeHeaderSaveStoToReturn" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSaveStoSet" Role="FromRole_ChangeHeaderSaveStoToReturn"/><End EntitySet="ChangeReturnSaveStoSet" Role="ToRole_ChangeHeaderSaveStoToReturn"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderSaveItemSaveSet" Association="ZRTV_FIORI_SRV.ChangeHeaderSaveItemSave" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSaveSet" Role="FromRole_ChangeHeaderSaveItemSave"/><End EntitySet="ChangeItemSaveSet" Role="ToRole_ChangeHeaderSaveItemSave"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderToItemSet" Association="ZRTV_FIORI_SRV.ChangeHeaderToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderSet" Role="FromRole_ChangeHeaderToItem"/><End EntitySet="ChangeItemSet" Role="ToRole_ChangeHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderHoldStoToReturnSet" Association="ZRTV_FIORI_SRV.ChangeHeaderHoldStoToReturn" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderHoldStoSet" Role="FromRole_ChangeHeaderHoldStoToReturn"/><End EntitySet="ChangeReturnHoldStoSet" Role="ToRole_ChangeHeaderHoldStoToReturn"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderHoldItemHoldSet" Association="ZRTV_FIORI_SRV.ChangeHeaderHoldItemHold" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderHoldSet" Role="FromRole_ChangeHeaderHoldItemHold"/><End EntitySet="ChangeItemHoldSet" Role="ToRole_ChangeHeaderHoldItemHold"/></AssociationSet>
+				<AssociationSet Name="ChangeHeaderStoToBoxSet" Association="ZRTV_FIORI_SRV.ChangeHeaderStoToBox" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeHeaderStoSet" Role="FromRole_ChangeHeaderStoToBox"/><End EntitySet="ChangeBoxStoSet" Role="ToRole_ChangeHeaderStoToBox"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://tswnva1515.fg.net:8001/sap/opu/odata/sap/ZRTV_FIORI_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://tswnva1515.fg.net:8001/sap/opu/odata/sap/ZRTV_FIORI_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

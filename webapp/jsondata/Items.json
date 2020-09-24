@@ -1,0 +1,48 @@
+{
+
+	"Items": [{
+		"IndentNo": "0001",
+		"Artical": "Artical1",
+		"EANScann": "1001",
+		"ArticalDsc": "ABC",
+		"Qty": "10",
+		"MRP": "1000",
+		"Agreement": "XYZ",
+		"Action": "Action1"		
+	},
+	
+	{
+		"IndentNo": "0002",
+		"Artical": "Artical2",
+		"EANScann": "1002",
+		"ArticalDsc": "DEF",
+		"Qty": "20",
+		"MRP": "2000",
+		"Agreement": "LMN",
+		"Action": "Action2"		
+	},
+	
+	{
+		"IndentNo": "0003",
+		"Artical": "Artical3",
+		"EANScann": "1003",
+		"ArticalDsc": "PQR",
+		"Qty": "30",
+		"MRP": "3000",
+		"Agreement": "GHJ",
+		"Action": "Action3"		
+	},
+	
+		{
+		"IndentNo": "0004",
+		"Artical": "Artical4",
+		"EANScann": "1004",
+		"ArticalDsc": "ASD",
+		"Qty": "40",
+		"MRP": "4000",
+		"Agreement": "BNM",
+		"Action": "Action4"		
+	}
+
+
+	]}

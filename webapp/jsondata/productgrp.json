@@ -1,0 +1,20 @@
+{
+	"ProductGroupSet": [{
+	
+		"ProductGroup": "ProductGroup1"
+		
+        
+    },{
+    	"ProductGroup": "ProductGroup2"
+    	
+        
+    },{
+    	"ProductGroup": "ProductGroup3"
+        
+    },
+    {
+    	"ProductGroup": "ProductGroup4"
+        
+    }]
+    
+ }

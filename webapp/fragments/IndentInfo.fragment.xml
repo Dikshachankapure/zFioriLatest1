@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="IndentPopup" title="{i18n>select}" items="{ path: '/IndentNoSet' }" noDataText="{i18n>notfound}"
+		search="_handleValueHelpSearchIndentInfo" confirm="_handleValueHelpCloseIndentInfo" cancel="_handleValueHelpCloseIndentInfo">
+		<StandardListItem title="{IndentNo}" iconDensityAware="false" iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>
+

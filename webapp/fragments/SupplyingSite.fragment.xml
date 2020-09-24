@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="SupplyingSitePopup" title="{i18n>select}" items="{ path: '/Supplyingsiteset' }" noDataText="{i18n>notfound}"
+		search="_handleValueHelpSearchSupplyingSite" confirm="_handleValueHelpCloseSupplyingSite" cancel="_handleValueHelpCloseSupplyingSite">
+		<StandardListItem title="{Supplyingsite}" iconDensityAware="false" iconInset="false" type="Active" id="lstSupplyingSite"/>
+	</SelectDialog>
+</core:FragmentDefinition>
